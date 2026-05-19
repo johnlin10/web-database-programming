@@ -12,4 +12,3 @@ if (file_exists($envFile)) {
 define('DB_HOST', getenv('MYSQLHOST')     ?: 'localhost');
 define('DB_USER', getenv('MYSQLUSER')     ?: 'root');
 define('DB_PASS', getenv('MYSQLPASSWORD') ?: '');
-define('DB_NAME', getenv('MYSQLDATABASE') ?: 'myschool');

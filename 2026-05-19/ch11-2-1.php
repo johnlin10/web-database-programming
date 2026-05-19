@@ -7,7 +7,7 @@ ob_start();
 <?php
 require __DIR__ . '/../db.php';
 mysqli_report(MYSQLI_REPORT_OFF);
-$link = mysqli_connect(DB_HOST, DB_USER, DB_PASS, 'myschool');
+$link = @mysqli_connect(DB_HOST, DB_USER, DB_PASS, 'myschool');
 
 if ( !$link ) {
    echo '無法開啟 MySQL 資料庫連接!<br/>';
