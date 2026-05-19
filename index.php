@@ -81,8 +81,8 @@ body {
 <body>
 <div class="page">
   <header class="header">
-    <h1>網路資料庫程式設計</h1>
-    <div class="sub">中臺科技大學 &nbsp;/&nbsp; 114-2</div>
+    <h1>網頁資料庫程式設計</h1>
+    <div class="sub">中臺科技大學 &nbsp;/&nbsp; F11308063 &nbsp;/&nbsp; 林昌龍</div>
   </header>
   <?php
   $dirs = glob(__DIR__ . '/20*', GLOB_ONLYDIR);

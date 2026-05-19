@@ -41,7 +41,16 @@ body {
   color: #333;
   letter-spacing: 0.1em;
   text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
+.source-link {
+  color:#0f3457;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.source-link:hover { color:rgb(17, 72, 122); }
 .window {
   border: 1px solid #1e1e1e;
   border-radius: 5px;
@@ -71,14 +80,40 @@ body {
   color: #909090;
   min-height: 100px;
 }
+.window-body hr {
+  border: none;
+  border-top: 1px solid #1e1e1e;
+  margin: 9px 0;
+}
+.window-body button {
+  background: #141414;
+  color: #888;
+  border: 1px solid #2a2a2a;
+  border-radius: 4px;
+  margin: 9px 0;
+  margin-right: 6px;
+  padding: 6px 14px;
+  font-family: inherit;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s;
+}
+.window-body button:hover {
+  color: #d0d0d0;
+  border-color: #555;
+}
 </style>
 </head>
 <body>
 <div class="page">
   <header class="header">
-    <a class="back" href="/">← 作業列表</a>
+    <a class="back" href="/">🡐 作業列表</a>
     <h1><?= htmlspecialchars($title) ?></h1>
-    <div class="meta"><?= htmlspecialchars($date ?? '') ?><?= isset($meta) ? ' &nbsp;/&nbsp; ' . htmlspecialchars($meta) : '' ?></div>
+    <div class="meta">
+      <span><?= htmlspecialchars($date ?? '') ?><?= isset($meta) ? ' &nbsp;/&nbsp; ' . htmlspecialchars($meta) : '' ?></span>
+      <a class="source-link" href="https://github.com/johnlin10/web-database-programming/blob/main<?= htmlspecialchars($_SERVER['PHP_SELF']) ?>" target="_blank" rel="noopener">SOURCE 🡕</a>
+    </div>
   </header>
   <div class="window">
     <div class="window-bar">

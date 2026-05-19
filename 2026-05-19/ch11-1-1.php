@@ -10,9 +10,9 @@ mysqli_report(MYSQLI_REPORT_OFF);
 $link = @mysqli_connect(DB_HOST, DB_USER, DB_PASS, 'myschool');
 
 if ( !$link ) {
-   echo 'MySQL資料庫連接錯誤!<br/>';
+   echo 'MySQL 資料庫連接錯誤!<br/>';
 } else {
-   echo 'MySQL資料庫myschool連接成功!<br/>';
+   echo 'MySQL 資料庫 myschool 連接成功!<br/>';
    mysqli_close($link);
 }
 ?>
