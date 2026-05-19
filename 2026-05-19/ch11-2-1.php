@@ -7,7 +7,7 @@
 <body>
 <?php
 $link = mysqli_connect(
-   'johnlin',
+   'mysql.railway.internal',
    'root',
    'KydGcOdIbdYezedVcyOEnkDdMPZMPexn',
    'myschool')
