@@ -1,7 +1,7 @@
 <?php
-$title = 'ch11-1-1.php';
+$title = '課堂練習 11：MySQL 連線測試';
 $date  = '2026-05-19';
-$meta  = 'MySQL 資料庫連線測試';
+$meta  = '以 mysqli 連線至 MySQL，測試資料庫連線狀態';
 ob_start();
 ?>
 <?php

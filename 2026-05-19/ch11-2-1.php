@@ -1,7 +1,7 @@
 <?php
-$title = 'ch11-2-1.php';
+$title = '課堂練習 11：MySQL 資料查詢';
 $date  = '2026-05-19';
-$meta  = 'MySQL 查詢 students 資料表';
+$meta  = '查詢 myschool 資料庫的 students 資料表並輸出所有記錄';
 ob_start();
 ?>
 <?php

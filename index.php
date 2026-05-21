@@ -34,13 +34,13 @@ body {
 }
 .section { margin-bottom: 32px; }
 .window {
-  border: 1px solid #1e1e1e;
+  border: 1px solid #202020;
   border-radius: 5px;
   overflow: hidden;
 }
 .window-bar {
   background: #141414;
-  border-bottom: 1px solid #1e1e1e;
+  border-bottom: 1px solid #202020;
   padding: 9px 16px;
   display: flex;
   align-items: center;
@@ -50,11 +50,11 @@ body {
 .dots span {
   width: 9px; height: 9px;
   border-radius: 50%;
-  background: #252525;
+  background: #2a2a2a;
 }
 .window-label {
   font-size: 0.68rem;
-  color: #333;
+  color: #505050;
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
@@ -73,9 +73,19 @@ body {
   text-decoration: none;
   font-size: 0.82rem;
   letter-spacing: 0.02em;
-  transition: color 0.15s;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
 }
 .file-list a:hover { color: #d0d0d0; }
+.file-list a:hover .file-title { color: #c1c1c1; }
+.file-list a:hover .file-desc { color: #555; }
+.file-title { color: #888; }
+.file-desc {
+  font-size: 0.7rem;
+  color: #383838;
+  letter-spacing: 0.02em;
+}
 </style>
 </head>
 <body>
@@ -97,7 +107,15 @@ body {
     echo "<div class='window-body'><ul class='file-list'>";
     foreach ($files as $file) {
       $filename = basename($file);
-      echo "<li><a href='$date/$filename'>$filename</a></li>";
+      $src = file_get_contents($file);
+      preg_match('/\$title\s*=\s*[\'"]([^\'"]+)[\'"]/', $src, $mt);
+      preg_match('/\$meta\s*=\s*[\'"]([^\'"]+)[\'"]/', $src, $mm);
+      $label = htmlspecialchars($mt[1] ?? $filename);
+      $desc  = htmlspecialchars($mm[1] ?? '');
+      echo "<li><a href='$date/$filename'>";
+      echo "<span class='file-title'>$label</span>";
+      if ($desc) echo "<span class='file-desc'>$desc</span>";
+      echo "</a></li>";
     }
     echo "</ul></div></div></div>";
   }

@@ -3,9 +3,10 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title><?= htmlspecialchars($title) ?> | 網資程設</title>
+<title><?= htmlspecialchars($title) ?> | 網頁資料庫程式設計</title>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+svg.lucide { width: 1em; height: 1em; vertical-align: -0.125em; }
 body {
   background: #0e0e0e;
   color: #c0c0c0;
@@ -88,7 +89,7 @@ body {
 .window-body button {
   background: #141414;
   color: #888;
-  border: 1px solid #2a2a2a;
+  border: 1px solid #ffffff2a;
   border-radius: 4px;
   margin: 9px 0;
   margin-right: 6px;
@@ -101,18 +102,18 @@ body {
 }
 .window-body button:hover {
   color: #d0d0d0;
-  border-color: #555;
+  border-color: #ffffff35;
 }
 </style>
 </head>
 <body>
 <div class="page">
   <header class="header">
-    <a class="back" href="/">🡐 作業列表</a>
+    <a class="back" href="/"><i data-lucide="arrow-left"></i> 作業列表</a>
     <h1><?= htmlspecialchars($title) ?></h1>
     <div class="meta">
       <span><?= htmlspecialchars($date ?? '') ?><?= isset($meta) ? ' &nbsp;/&nbsp; ' . htmlspecialchars($meta) : '' ?></span>
-      <a class="source-link" href="https://github.com/johnlin10/web-database-programming/blob/main<?= htmlspecialchars($_SERVER['PHP_SELF']) ?>" target="_blank" rel="noopener">SOURCE 🡕</a>
+      <a class="source-link" href="https://github.com/johnlin10/web-database-programming/blob/main<?= htmlspecialchars($_SERVER['PHP_SELF']) ?>" target="_blank" rel="noopener">SOURCE <i data-lucide="arrow-up-right"></i></a>
     </div>
   </header>
   <div class="window">
@@ -123,5 +124,7 @@ body {
     <div class="window-body"><?= $content ?></div>
   </div>
 </div>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script>lucide.createIcons();</script>
 </body>
 </html>
