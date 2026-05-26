@@ -208,7 +208,7 @@ body {
 }
 .form { display: flex; flex-direction: column; gap: 12px; }
 .form-row { display: flex; align-items: center; gap: 10px; }
-.form-label { width: 80px; font-size: 0.78rem; color: #555; flex-shrink: 0; }
+.form-label { width: 100px; font-size: 0.78rem; color: #555; flex-shrink: 0; }
 .form-input {
   flex: 1;
   background: #141414;
