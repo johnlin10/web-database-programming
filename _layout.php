@@ -104,7 +104,7 @@ body {
   padding: 9px 16px;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 18px;
 }
 .dots { display: flex; gap: 5px; }
 .dots span { width: 9px; height: 9px; border-radius: 50%; background: #252525; }
@@ -160,15 +160,16 @@ body {
   display: flex;
   flex: 1;
   overflow-x: auto;
-  gap: 2px;
+  gap: 6px;
   scrollbar-width: none;
-  margin: 0 -4px; /* 讓最後一個 tab 不留右 padding */
+  margin: 0 -4px;
 }
 .src-tabs-nav::-webkit-scrollbar { display: none; }
 .src-tab {
   background: transparent;
   border: none;
   color: #313131;
+  border: 1px solid #1a1a1a;
   cursor: pointer;
   font-family: inherit;
   font-size: 0.65rem;
@@ -179,7 +180,11 @@ body {
   transition: color 0.15s, background-color 0.15s;
 }
 .src-tab:hover  { color: #666; background: rgba(255,255,255,0.03); }
-.src-tab.active { color: #aaa; background: rgba(255,255,255,0.06); }
+.src-tab.active { 
+  color: #aaa;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid #2a2a2a;
+}
 /* 程式碼內容區 */
 .source-body {
   background: #0a0a0a;
