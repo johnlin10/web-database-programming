@@ -99,7 +99,14 @@ body {
   rsort($dirs);
   foreach ($dirs as $dir) {
     $date = basename($dir);
-    $files = glob($dir . '/*.php');
+    $files = glob($dir . '/*.php') ?: [];
+    foreach (glob($dir . '/*', GLOB_ONLYDIR) ?: [] as $subdir) {
+      foreach (glob($subdir . '/*.php') ?: [] as $subfile) {
+        if (basename($subfile) !== 'index.php') {
+          $files[] = $subfile;
+        }
+      }
+    }
     if (empty($files)) continue;
     echo "<div class='section'>";
     echo "<div class='window'>";
@@ -107,12 +114,14 @@ body {
     echo "<div class='window-body'><ul class='file-list'>";
     foreach ($files as $file) {
       $filename = basename($file);
+      // 計算從專案根目錄出發的相對路徑（支援子目錄）
+      $relpath = substr($file, strlen(__DIR__) + 1);
       $src = file_get_contents($file);
       preg_match('/\$title\s*=\s*[\'"]([^\'"]+)[\'"]/', $src, $mt);
       preg_match('/\$meta\s*=\s*[\'"]([^\'"]+)[\'"]/', $src, $mm);
       $label = htmlspecialchars($mt[1] ?? $filename);
       $desc  = htmlspecialchars($mm[1] ?? '');
-      echo "<li><a href='$date/$filename'>";
+      echo "<li><a href='$relpath'>";
       echo "<span class='file-title'>$label</span>";
       if ($desc) echo "<span class='file-desc'>$desc</span>";
       echo "</a></li>";

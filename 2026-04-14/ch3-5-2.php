@@ -35,12 +35,6 @@ ob_start();
   margin-top: 4px;
   margin-bottom: 14px;
 }
-.submit-btn {
-  background: #314170ff !important;
-}
-.submit-btn:hover {
-  background: #334888ff !important;
-}
 </style>
 <form name="login" method="post" action="ch8-4-3.php">
   <div class="form-row">
