@@ -29,9 +29,11 @@ if ($username != "" && $password != "") {
         $total_records = mysqli_num_rows($result);
 
         if ($total_records > 0) {
-            // 成功登入，指定 Session 變數
+            // 成功登入，取出使用者真實姓名並指定 Session 變數
+            $row = mysqli_fetch_assoc($result);
             $_SESSION["login_session"] = true;
-            $_SESSION["username"]      = $username;  // 儲存使用者名稱以供歡迎頁使用
+            $_SESSION["username"]      = $username;       // 帳號（英文）
+            $_SESSION["name"]          = $row["name"];    // 真實姓名
             mysqli_close($link);
             header("Location: index.php");  // 轉跳至歡迎頁
             exit();

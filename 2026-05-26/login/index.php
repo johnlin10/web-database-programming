@@ -7,7 +7,8 @@ if ($_SESSION["login_session"] != true) {
     exit();
 }
 
-// 取出使用者名稱後再銷毀 Session
+// 取出姓名與帳號後再銷毀 Session
+$welcome_name = $_SESSION["name"];
 $welcome_user = $_SESSION["username"];
 session_destroy();
 
@@ -17,7 +18,7 @@ $date   = '2026-05-26';
 $meta   = '使用 Session 實作登入驗證，成功後顯示使用者姓名';
 ob_start();
 ?>
-<p>歡迎 <span class="highlight"><?= htmlspecialchars($welcome_user) ?></span> 進入網站！</p>
+<p>歡迎 <span class="highlight"><?= htmlspecialchars($welcome_name) ?></span><span>(@<?= htmlspecialchars($welcome_user) ?>)</span> 進入網站！</p>
 <hr>
 <a class="back" href="login.php"><i data-lucide="arrow-left"></i> 返回登入頁</a>
 <?php
